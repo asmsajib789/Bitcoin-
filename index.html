@@ -9,7 +9,7 @@
     <style>
         :root {
             --primary-bg: #02060c;
-            --header-bg: rgba(17, 43, 68, 0.85);
+            --header-bg: rgba(17, 43, 68, 0.9);
             --accent-color: #00d1b2;
             --active-green: #00ff88;
             --card-bg: rgba(255, 255, 255, 0.03);
@@ -28,12 +28,12 @@
             overflow-x: hidden;
         }
 
-        /* --- Header --- */
+        /* --- Header: Custom Layout --- */
         header {
             background: var(--header-bg);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            padding: 12px 15px;
+            padding: 10px 15px;
             border-bottom: 1px solid var(--glass-border);
             position: sticky;
             top: 0;
@@ -48,42 +48,75 @@
             align-items: center;
         }
 
+        /* Left Side: Profile & Numbers */
         .admin-box {
             display: flex;
             align-items: center;
-            gap: 12px;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 5px 12px;
-            border-radius: 50px;
-            border: 1px solid var(--glass-border);
+            gap: 10px;
+        }
+
+        .profile-img-box {
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .profile-img-box img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 2px solid var(--active-green);
+            object-fit: cover;
+            background: #fff;
         }
 
         .pulse-dot {
-            height: 10px;
-            width: 10px;
+            height: 8px;
+            width: 8px;
             background-color: var(--active-green);
             border-radius: 50%;
-            box-shadow: 0 0 12px var(--active-green);
+            position: absolute;
+            bottom: 2px;
+            right: 2px;
+            box-shadow: 0 0 8px var(--active-green);
             animation: pulse-animation 1.5s infinite;
         }
 
-        .logo-text {
-            margin: 0;
-            font-size: 20px;
+        .admin-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .status-label {
+            font-size: 10px;
+            color: var(--active-green);
             font-weight: 800;
             text-transform: uppercase;
-            background: linear-gradient(to right, #fff, var(--accent-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            line-height: 1;
+            margin-bottom: 2px;
+        }
+
+        .admin-phone {
+            font-size: 12px;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        /* Right Side: Logo Image */
+        .logo-box img {
+            height: 35px;
+            width: auto;
+            object-fit: contain;
         }
 
         @keyframes pulse-animation {
             0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 255, 136, 0); }
+            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(0, 255, 136, 0); }
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 136, 0); }
         }
 
-        /* --- Main Layout --- */
+        /* --- Main Content --- */
         .card-container {
             width: 100%;
             max-width: 480px;
@@ -98,45 +131,6 @@
             box-shadow: 0 15px 35px rgba(0,0,0,0.5);
             border: 1px solid var(--glass-border);
             margin-bottom: 25px;
-        }
-
-        /* --- Operator Profile Card --- */
-        .operator-card {
-            background: linear-gradient(135deg, #0d1b2a, #1b263b);
-            border: 1px solid var(--accent-color);
-            border-radius: 24px;
-            padding: 15px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            box-shadow: 0 10px 25px rgba(0, 209, 178, 0.1);
-        }
-
-        .profile-img-box {
-            position: relative;
-            flex-shrink: 0;
-        }
-
-        .profile-img-box img {
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
-            border: 2px solid var(--active-green);
-            object-fit: cover;
-            background: #fff;
-        }
-
-        .online-indicator {
-            position: absolute;
-            bottom: 5px;
-            right: 2px;
-            width: 12px;
-            height: 12px;
-            background: var(--active-green);
-            border-radius: 50%;
-            border: 2px solid #0d1b2a;
-            box-shadow: 0 0 5px var(--active-green);
         }
 
         /* --- Glossy Bet Cards --- */
@@ -160,15 +154,15 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .brand-logo {
             background: #fff;
             padding: 6px;
             border-radius: 12px;
-            width: 85px;
-            height: 45px;
+            width: 80px;
+            height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -179,7 +173,7 @@
         .promo-tag {
             background: var(--gold);
             color: #000;
-            padding: 5px 12px;
+            padding: 4px 10px;
             border-radius: 50px;
             font-size: 11px;
             font-weight: 800;
@@ -188,57 +182,48 @@
         .info-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 20px;
+            gap: 10px;
+            margin-bottom: 15px;
         }
 
         .info-box {
             background: rgba(255, 255, 255, 0.05);
-            padding: 10px;
-            border-radius: 15px;
+            padding: 8px;
+            border-radius: 12px;
             text-align: center;
         }
 
         .info-box span { font-size: 10px; color: #8899ac; text-transform: uppercase; }
-        .info-box b { display: block; font-size: 13px; color: #fff; margin-top: 3px; }
+        .info-box b { display: block; font-size: 13px; color: #fff; margin-top: 2px; }
 
         .reg-btn {
             display: block;
             background: linear-gradient(90deg, #00d1b2, #00ff88);
             color: #000;
             text-decoration: none;
-            padding: 15px;
-            border-radius: 16px;
+            padding: 12px;
+            border-radius: 14px;
             text-align: center;
             font-weight: 800;
             text-transform: uppercase;
-            box-shadow: 0 8px 20px rgba(0, 209, 178, 0.3);
         }
 
         .special-card .reg-btn { background: var(--gold); }
 
-        /* --- Footer & WhatsApp --- */
+        /* --- Footer --- */
         footer {
             background: rgba(1, 10, 19, 0.9);
-            padding: 40px 20px;
+            padding: 30px 20px;
             text-align: center;
             border-top: 1px solid var(--glass-border);
         }
 
         .wa-float {
             position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 25px;
-            right: 25px;
-            background: #25d366;
-            color: #FFF;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            z-index: 1000;
+            width: 60px; height: 60px; bottom: 25px; right: 25px;
+            background: #25d366; color: #FFF; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 32px; z-index: 1000;
             box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
         }
     </style>
@@ -248,32 +233,23 @@
     <header>
         <div class="header-container">
             <div class="admin-box">
-                <span class="pulse-dot"></span>
-                <span style="font-size: 14px; font-weight: 700;">Admin Online</span>
+                <div class="profile-img-box">
+                    <img src="admin-photo.png" alt="Admin"> <span class="pulse-dot"></span>
+                </div>
+                <div class="admin-info">
+                    <span class="status-label">Admin Online</span>
+                    <a href="tel:01749637523" class="admin-phone">01749637523</a>
+                    <a href="tel:01XXXXXXXXX" class="admin-phone">01XXXXXXXXX</a> </div>
             </div>
-            <h1 class="logo-text">Bitcoin<span>Club</span></h1>
+
+            <div class="logo-box">
+                <img src="logo.png" alt="Bitcoin Club"> </div>
         </div>
     </header>
 
     <div class="card-container">
         
         <img src="slider1.png" alt="Special Offer" class="slider-image">
-
-        <div class="operator-card">
-            <div class="profile-img-box">
-                <img src="https://i.ibb.co/LzY7m9N/admin-profile.png" alt="Admin">
-                <span class="online-indicator"></span>
-            </div>
-            <div style="flex-grow: 1;">
-                <p style="margin: 0; font-size: 12px; color: var(--active-green); font-weight: 700; text-transform: uppercase;">Direct Contact</p>
-                <h2 style="margin: 2px 0; font-size: 20px; font-weight: 800; color: #ffffff;">01749637523</h2>
-                <div style="display: flex; gap: 8px; margin-top: 4px;">
-                    <span style="font-size: 10px; background: rgba(37, 211, 102, 0.15); color: #25d366; padding: 2px 8px; border-radius: 4px;">WhatsApp</span>
-                    <span style="font-size: 10px; background: rgba(0, 136, 204, 0.15); color: #0088cc; padding: 2px 8px; border-radius: 4px;">Telegram</span>
-                </div>
-            </div>
-            <a href="https://wa.me/8801749637523" style="color: var(--active-green); font-size: 24px;"><i class="fab fa-whatsapp"></i></a>
-        </div>
 
         <article class="bet-card special-card">
             <div class="card-header">
@@ -299,13 +275,36 @@
             <a href="https://dlb24.com" class="reg-btn">Register DLB24</a>
         </article>
 
+        <article class="bet-card">
+            <div class="card-header">
+                <div class="brand-logo"><img src="bd2.png" alt="Bdworld"></div>
+                <span class="promo-tag" style="background: rgba(0, 209, 178, 0.2); color: var(--accent-color);">Bitcoin Club</span>
+            </div>
+            <div class="info-grid">
+                <div class="info-box"><span>Deposit</span><b>100৳ - Unlimited</b></div>
+                <div class="info-box"><span>Withdraw</span><b>500৳- 50k</b></div>
+            </div>
+            <a href="https://bdworld.live" class="reg-btn">Register Bdworld</a>
+        </article>
+
+        <article class="bet-card">
+            <div class="card-header">
+                <div class="brand-logo"><img src="gm.jpg" alt="Gameon24"></div>
+                <span class="promo-tag" style="background: rgba(0, 209, 178, 0.2); color: var(--accent-color);">Bitcoin Club</span>
+            </div>
+            <div class="info-grid">
+                <div class="info-box"><span>Deposit</span><b>100৳- Unlimited</b></div>
+                <div class="info-box"><span>Withdraw</span><b>500৳ - 50k</b></div>
+            </div>
+            <a href="https://gameon24.live" class="reg-btn">Register Gameon24</a>
+        </article>
+
     </div> 
 
     <footer>
-        <div style="font-size: 22px; font-weight: 800; color: var(--accent-color);">Bitcoin Club</div>
-        <div style="margin-top: 10px; color: #556677; font-size: 12px;">
-            © 2026 Bitcoin Club Bangladesh.
-        </div>
+        <div style="font-size: 20px; font-weight: 800; color: var(--accent-color);">Bitcoin Club</div>
+        <div style="margin: 10px 0; color: #8899ac;"><i class="fab fa-whatsapp"></i> Support: 01749637523</div>
+        <div style="font-size: 11px; color: #556677;">© 2026 Bitcoin Club Bangladesh.</div>
     </footer>
 
     <a href="https://wa.me/8801749637523" class="wa-float" target="_blank">

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin Club - Ultimate Betting Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #030810;
+            font-family: 'Roboto', sans-serif;
+            color: #ffffff;
+        }
+
+        /* --- Simple Header --- */
+        header {
+            background: #112b44;
+            padding: 15px;
+            text-align: center;
+            border-bottom: 3px solid #00d1b2;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 20px;
+            color: #00d1b2;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- Slider Styling --- */
+        .slider-container {
+            width: 100%;
+            max-width: 500px;
+            margin: 15px auto;
+            padding: 0 10px;
+            box-sizing: border-box;
+        }
+
+        .slider-image {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            margin-bottom: 10px;
+            border: 1px solid rgba(0,209,178,0.3);
+        }
+
+        /* --- Card Container --- */
+        .card-container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        /* --- 1xBet Special Card --- */
+        .special-card {
+            background: linear-gradient(145deg, #1a5fb4, #0d3b66);
+            border: 2px solid #f7df1e;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 10px 25px rgba(247, 223, 30, 0.2);
+        }
+
+        /* --- Normal Cards --- */
+        .bet-card {
+            background-color: #112b44;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .brand-logo {
+            background: white;
+            padding: 5px;
+            border-radius: 8px;
+            width: 80px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .brand-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .promo-code {
+            background: #f7df1e;
+            color: #000;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .info-box {
+            background: rgba(255,255,255,0.05);
+            padding: 8px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .info-box span {
+            display: block;
+            font-size: 9px;
+            color: #aaa;
+            text-transform: uppercase;
+        }
+
+        .info-box b {
+            font-size: 13px;
+            color: #fff;
+        }
+
+        .reg-btn {
+            display: block;
+            background: linear-gradient(90deg, #00ff88, #00d1b2);
+            color: #000;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        .special-card .reg-btn {
+            background: linear-gradient(90deg, #f7df1e, #ffcc00);
+        }
+
+        /* --- Professional Footer --- */
+        footer {
+            background: #0d1b2a;
+            padding: 30px 15px;
+            text-align: center;
+            border-top: 2px solid #00d1b2;
+            margin-top: 30px;
+        }
+
+        .footer-logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #00d1b2;
+            margin-bottom: 10px;
+        }
+
+        .footer-links {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 14px;
+        }
+
+        .footer-contact {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .footer-contact i {
+            color: #25d366;
+            margin-right: 5px;
+        }
+
+        .copyright {
+            color: #666;
+            font-size: 12px;
+        }
+
+        .wa-float {
+            position: fixed;
+            width: 55px;
+            height: 55px;
+            bottom: 25px;
+            right: 20px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Bitcoin Club Portal</h1>
+    </header>
+
+    <div class="slider-container">
+        <img src="slider1.jpg" alt="Special Offer 1" class="slider-image">
+        <img src="slider2.jpg" alt="Special Offer 2" class="slider-image">
+    </div>
+
+    <div class="card-container">
+
+        <article class="special-card">
+            <div class="card-header">
+                <div class="brand-logo"><img src="1xbet_logo.png" alt="1xBet"></div>
+                <span class="promo-code">Promo: AZ365</span>
+            </div>
+            <div class="info-grid">
+                <div class="info-box"><span>Sponsor</span><b>AZ365</b></div>
+                <div class="info-box"><span>Club</span><b>Bitcoin Club</b></div>
+                <div class="info-box"><span>Deposit</span><b>300 - Unlimited</b></div>
+                <div class="info-box"><span>Withdraw</span><b>500 - 25k</b></div>
+            </div>
+            <a href="https://1xbet.com/" class="reg-btn">Register 1xBet</a>
+        </article>
+
+        <article class="bet-card">
+            <div class="card-header">
+                <div class="brand-logo"><img src="bdworld_logo.png" alt="BdWorld"></div>
+                <span style="color: #00ff88; font-size: 11px; font-weight: bold;">Verified</span>
+            </div>
+            <div class="info-grid">
+                <div class="info-box"><span>Sponsor</span><b>Bitcoin</b></div>
+                <div class="info-box"><span>Club</span><b>Bitcoin Club</b></div>
+                <div class="info-box"><span>Deposit</span><b>200 - Unlimited</b></div>
+                <div class="info-box)<span>Withdraw</span><b>500 - 50k</b></div>
+            </div>
+            <a href="https://bdworld.site" class="reg-btn">Register BdWorld</a>
+        </article>
+
+        <article class="bet-card">
+            <div class="card-header">
+                <div class="brand-logo"><img src="gameon24_logo.png" alt="Gameon24"></div>
+            </div>
+            <div class="info-grid">
+                <div class="info-box"><span>Sponsor</span><b>Bitcoin</b></div>
+                <div class="info-box"><span>Club</span><b>Bitcoin Club</b></div>
+                <div class="info-box"><span>Deposit</span><b>200 - Unlimited</b></div>
+                <div class="info-box"><span>Withdraw</span><b>500 - 50k</b></div>
+            </div>
+            <a href="https://gameon24.live" class="reg-btn">Register Gameon24</a>
+        </article>
+
+        <article class="bet-card">
+            <div class="card-header">
+                <div class="brand-logo"><img src="bdt20_logo.png" alt="Bdt20"></div>
+            </div>
+            <div class="info-grid">
+                <div class="info-box"><span>Sponsor</span><b>Bitcoin</b></div>
+                <div class="info-box"><span>Club</span><b>Bitcoin Club</b></div>
+                <div class="info-box"><span>Deposit</span><b>200 - Unlimited</b></div>
+                <div class="info-box"><span>Withdraw</span><b>500 - 30k</b></div>
+            </div>
+            <a href="https://bdt20.net" class="reg-btn">Register Bdt20</a>
+        </article>
+
+    </div>
+
+    <footer>
+        <div class="footer-logo">Bitcoin Club</div>
+        <div class="footer-contact">
+            <i class="fab fa-whatsapp"></i> Support: 01826444505
+        </div>
+        <div class="footer-links">
+            <a href="#">About Us</a> | 
+            <a href="#">Terms</a> | 
+            <a href="#">Privacy</a>
+        </div>
+        <div class="copyright">
+            © 2026 Bitcoin Club Bangladesh. <br> 
+            All Rights Reserved. 18+ Only.
+        </div>
+    </footer>
+
+    <a href="https://wa.me/8801826444505" class="wa-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>

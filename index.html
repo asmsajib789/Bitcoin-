@@ -1,37 +1,118 @@
+
 <!DOCTYPE html>
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bitcoin Club - Ultimate Betting Portal</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        :root {
+            --primary-bg: #030810;
+            --header-bg: #112b44;
+            --accent-color: #00d1b2;
+            --active-green: #00ff88;
+            --card-bg: #112b44;
+            --special-gradient: linear-gradient(145deg, #1a5fb4, #0d3b66);
+        }
+
         body {
             margin: 0;
             padding: 0;
-            background-color: #030810;
-            font-family: 'Roboto', sans-serif;
+            background-color: var(--primary-bg);
+            font-family: 'Hind Siliguri', 'Roboto', sans-serif;
             color: #ffffff;
         }
 
-        /* --- Simple Header --- */
+        /* --- Updated Premium Header --- */
         header {
-            background: #112b44;
-            padding: 15px;
-            text-align: center;
-            border-bottom: 3px solid #00d1b2;
+            background: var(--header-bg);
+            padding: 10px 15px;
+            border-bottom: 2px solid var(--accent-color);
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 20px;
-            color: #00d1b2;
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* বাম পাশের অ্যাডমিন সেকশন */
+        .admin-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .status-indicator {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pulse-dot {
+            height: 10px;
+            width: 10px;
+            background-color: var(--active-green);
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 8px var(--active-green);
+            animation: pulse-animation 1.5s infinite;
+        }
+
+        .admin-meta {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .admin-label {
+            font-size: 10px;
+            color: var(--active-green);
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 0.5px;
+        }
+
+        .admin-phone {
+            font-size: 15px;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        /* ডান পাশের লোগো সেকশন */
+        .site-logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-text {
+            margin: 0;
+            font-size: 18px;
+            color: #ffffff;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo-text span {
+            color: var(--accent-color);
+        }
+
+        /* এনিমেশন */
+        @keyframes pulse-animation {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(0, 255, 136, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 136, 0); }
         }
 
         /* --- Slider Styling --- */
@@ -58,23 +139,20 @@
             padding: 10px;
         }
 
-        /* --- 1xBet Special Card --- */
-        .special-card {
-            background: linear-gradient(145deg, #1a5fb4, #0d3b66);
-            border: 2px solid #f7df1e;
-            border-radius: 20px;
-            padding: 20px;
-            margin-bottom: 15px;
-            box-shadow: 0 10px 25px rgba(247, 223, 30, 0.2);
-        }
-
-        /* --- Normal Cards --- */
+        /* --- Cards Styling --- */
         .bet-card {
-            background-color: #112b44;
+            background-color: var(--card-bg);
             border-radius: 20px;
             padding: 20px;
             margin-bottom: 15px;
             border: 1px solid rgba(255,255,255,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .special-card {
+            background: var(--special-gradient);
+            border: 2px solid #f7df1e;
+            box-shadow: 0 10px 25px rgba(247, 223, 30, 0.2);
         }
 
         .card-header {
@@ -119,16 +197,17 @@
 
         .info-box {
             background: rgba(255,255,255,0.05);
-            padding: 8px;
+            padding: 10px;
             border-radius: 8px;
             text-align: center;
         }
 
         .info-box span {
             display: block;
-            font-size: 9px;
+            font-size: 10px;
             color: #aaa;
             text-transform: uppercase;
+            margin-bottom: 4px;
         }
 
         .info-box b {
@@ -141,53 +220,43 @@
             background: linear-gradient(90deg, #00ff88, #00d1b2);
             color: #000;
             text-decoration: none;
-            padding: 12px;
+            padding: 14px;
             border-radius: 12px;
             text-align: center;
             font-weight: 700;
-            font-size: 15px;
+            font-size: 16px;
+            transition: 0.3s;
         }
 
         .special-card .reg-btn {
             background: linear-gradient(90deg, #f7df1e, #ffcc00);
         }
 
-        /* --- Professional Footer --- */
+        /* --- Footer --- */
         footer {
             background: #0d1b2a;
             padding: 30px 15px;
             text-align: center;
-            border-top: 2px solid #00d1b2;
+            border-top: 2px solid var(--accent-color);
             margin-top: 30px;
         }
 
         .footer-logo {
             font-size: 22px;
             font-weight: bold;
-            color: #00d1b2;
+            color: var(--accent-color);
             margin-bottom: 10px;
-        }
-
-        .footer-links {
-            margin-bottom: 15px;
-        }
-
-        .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-            margin: 0 10px;
-            font-size: 14px;
         }
 
         .footer-contact {
             color: #fff;
             margin-bottom: 15px;
-            font-size: 14px;
+            font-size: 15px;
         }
 
         .footer-contact i {
-            color: #25d366;
-            margin-right: 5px;
+            color: var(--active-green);
+            margin-right: 8px;
         }
 
         .copyright {
@@ -195,6 +264,7 @@
             font-size: 12px;
         }
 
+        /* WhatsApp Float */
         .wa-float {
             position: fixed;
             width: 55px;
@@ -212,12 +282,32 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.4);
             text-decoration: none;
         }
+
+        /* মোবাইল এডজাস্টমেন্ট */
+        @media (max-width: 400px) {
+            .admin-phone { font-size: 13px; }
+            .logo-text { font-size: 15px; }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Bitcoin Club Portal</h1>
+        <div class="header-container">
+            <div class="admin-box">
+                <div class="status-indicator">
+                    <span class="pulse-dot"></span>
+                </div>
+                <div class="admin-meta">
+                    <span class="admin-label">Admin Active</span>
+                    <a href="tel:01826444505" class="admin-phone">01826444505</a>
+                </div>
+            </div>
+
+            <div class="site-logo-container">
+                <h1 class="logo-text">Bitcoin<span>Club</span></h1>
+            </div>
+        </div>
     </header>
 
     <div class="slider-container">
@@ -227,7 +317,7 @@
 
     <div class="card-container">
 
-        <article class="special-card">
+        <article class="bet-card special-card">
             <div class="card-header">
                 <div class="brand-logo"><img src="1xbet1.jpeg" alt="1xBet"></div>
                 <span class="promo-code">Promo: AZ365</span>
@@ -242,13 +332,13 @@
         <article class="bet-card">
             <div class="card-header">
                 <div class="brand-logo"><img src="bdworld_logo.png" alt="BdWorld"></div>
-                <span style="color: #00ff88; font-size: 11px; font-weight: bold;">Verified</span>
+                <span style="color: var(--active-green); font-size: 11px; font-weight: bold;"><i class="fas fa-check-circle"></i> Verified</span>
             </div>
             <div class="info-grid">
                 <div class="info-box"><span>Sponsor</span><b>Bitcoin</b></div>
                 <div class="info-box"><span>Club</span><b>Bitcoin Club</b></div>
                 <div class="info-box"><span>Deposit</span><b>200 - Unlimited</b></div>
-                <div class="info-box)<span>Withdraw</span><b>500 - 50k</b></div>
+                <div class="info-box"><span>Withdraw</span><b>500 - 50k</b></div>
             </div>
             <a href="https://bdworld.site" class="reg-btn">Register BdWorld</a>
         </article>
@@ -266,19 +356,6 @@
             <a href="https://gameon24.live" class="reg-btn">Register Gameon24</a>
         </article>
 
-        <article class="bet-card">
-            <div class="card-header">
-                <div class="brand-logo"><img src="bdt20_logo.png" alt="Bdt20"></div>
-            </div>
-            <div class="info-grid">
-                <div class="info-box"><span>Sponsor</span><b>Bitcoin</b></div>
-                <div class="info-box"><span>Club</span><b>Bitcoin Club</b></div>
-                <div class="info-box"><span>Deposit</span><b>200 - Unlimited</b></div>
-                <div class="info-box"><span>Withdraw</span><b>500 - 30k</b></div>
-            </div>
-            <a href="https://bdt20.net" class="reg-btn">Register Bdt20</a>
-        </article>
-
     </div>
 
     <footer>
@@ -287,9 +364,9 @@
             <i class="fab fa-whatsapp"></i> Support: 01826444505
         </div>
         <div class="footer-links">
-            <a href="#">About Us</a> | 
-            <a href="#">Terms</a> | 
-            <a href="#">Privacy</a>
+            <a href="#" style="color:#ccc; text-decoration:none; margin:0 10px;">About Us</a> | 
+            <a href="#" style="color:#ccc; text-decoration:none; margin:0 10px;">Terms</a> | 
+            <a href="#" style="color:#ccc; text-decoration:none; margin:0 10px;">Privacy</a>
         </div>
         <div class="copyright">
             © 2026 Bitcoin Club Bangladesh. <br> 
